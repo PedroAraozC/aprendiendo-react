@@ -1,20 +1,29 @@
+import { useState } from "react";
 import './App.css';
+import { TwitterFollowCard } from './TwitterFolowCard.jsx'
+export { TwitterFollowCard } from './TwitterFolowCard.jsx'
 
 export function App() {
+    
+    const [name, setName] = useState('pedro_araoz')
+    console.log('render with name: ', name)
+
     return (
-        <article className='tw-followCard'>
-            <header className='tw-followCard-header'>
-                <img className='tw-followCard-avatar' src="https://unavatar.io/pedroAraoz" alt="Asvatar de Pedro" />
-                <div className='tw-followCard-info'>
-                    <strong>Pedro Araoz</strong>
-                    <span calssName='tw-followCard-infoUserName'>@pedro_araoz</span>
-                </div>
-            </header>
-            <aside>
-                <button className='tw-followCard-button'>
-                    Seguir
-                </button>
-            </aside>
-        </article>
+        <section className="App">
+        
+            <TwitterFollowCard userName={name}>
+                Pedro Araoz
+            </TwitterFollowCard> 
+            
+            <TwitterFollowCard userName="Omar.adra" >
+                Omar Adra
+            </TwitterFollowCard>
+        
+            <button onClick={() => setName('Pedro123')}>
+                Cambio nombre
+            </button>
+        </section>
+        
     )
+
 }
